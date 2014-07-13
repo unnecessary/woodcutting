@@ -413,3 +413,24 @@ public OnPlayerEditObject(playerid, playerobject, objectid, response, Float: fX,
 
     return true;
 }
+
+stock RandomTreeLoot(playerid)
+{
+    new loot, string[70];
+
+    switch(random(5))
+    {
+        case 0: loot = 3;
+        case 1: loot = 5;
+        case 2: loot = 7;
+        case 3: loot = 9;
+        case 4: loot = 0;
+    }
+
+    pWood[playerid] += loot;
+
+    format(string, sizeof(string), "You have gathered %d useable sticks. You now have %d sticks.", loot, pWood[playerid]);
+    SendClientMessage(playerid, 0xA3A3A3FF, string);
+
+    return true;
+}
